@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
 import { Link, useParams } from "react-router-dom";
+
 import Loading from "../../../utilities/Loading";
 
 const CharactersDetails = () => {
@@ -10,10 +10,12 @@ const CharactersDetails = () => {
    const [characters, setCharacters] = useState([]);
    const [singleCharacter, setSingleCharacter] = useState({});
 
+   /* to find out individual character as object =========================== */
    useEffect(() => {
       setSingleCharacter(characters.find((character) => character));
    }, [characters]);
 
+   /* Fetching individual character as array =========================== */
    useEffect(() => {
       const getData = async () => {
          try {
@@ -41,21 +43,27 @@ const CharactersDetails = () => {
                <div className="w-50">
                   <img className="w-50" src={singleCharacter.img} alt="" />
                </div>
+
                <h3>
                   <span>Name:</span> {singleCharacter.name}
                </h3>
+
                <h4 className={singleCharacter.birthday === "Unknown" ? "d-none" : "d-block"}>
                   <span>Birthday:</span> {singleCharacter.birthday}
                </h4>
+
                <h4 className={singleCharacter.occupation === "Unknown" ? "d-none" : "d-block"}>
                   <span>Occupation:</span> {singleCharacter.occupation}
                </h4>
+
                <h4 className={singleCharacter.status === "Unknown" ? "d-none" : "d-block"}>
                   <span>Status:</span> {singleCharacter.status}
                </h4>
+
                <h4 className={singleCharacter.nickname === "Unknown" ? "d-none" : "d-block"}>
                   <span>Nickname:</span> {singleCharacter.nickname}
                </h4>
+
                <h4 className={singleCharacter.portrayed === "Unknown" ? "d-none" : "d-block"}>
                   <span>Portrayed By:</span> {singleCharacter.portrayed}
                </h4>

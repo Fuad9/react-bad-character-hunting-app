@@ -72,6 +72,7 @@ function Home() {
 
    return (
       <>
+         {/* Search Area ============================= */}
          <div className="d-flex justify-content-center my-3">
             <input
                className="form-control w-50"
@@ -83,8 +84,10 @@ function Home() {
             <button className="btn btn-success">Search</button>
          </div>
 
+         {/* Showing All Characters =========================== */}
          {loading ? <Loading /> : <Characters characters={currentCharacter} />}
 
+         {/* Configuring Pagination ============================ */}
          <div className="d-flex justify-content-center">
             <Pagination
                charactersPerPage={charactersPerPage}
